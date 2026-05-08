@@ -2,7 +2,7 @@
 
 miis
 ## Descrição
-O sistema permite registrar os miis da sua ilha e guardar seus dados simples.
+O sistema permite registrar os miis (bonequinho) da sua ilha de tomodachi life living the dream (jogo da nintendo 2026 para switch 2) e guardar seus dados simples.
 ## Membros da Equipe
 - Willyam Andrade Medeiros - andrade.medeiros10@aluno.ifce.edu.br
 - Beatriz Rodrigues Braga - beatriz.rodrigues06@aluno.ifce.edu.br
