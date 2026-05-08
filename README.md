@@ -8,7 +8,7 @@ O sistema permite registrar os miis da sua ilha e guardar seus dados simples.
 - Beatriz Rodrigues Braga - beatriz.rodrigues06@aluno.ifce.edu.br
 ## Tecnologias Utilizadas
 - Django 6.0.5
-- SQLite
+- SQLite 3.50.4
 - Python 3.14.2
 ## Como Executar o Projeto
 1. Clone o repositório
