@@ -23,4 +23,3 @@ O sistema permite registrar os miis da sua ilha e guardar seus dados simples.
 - [x] Admin configurado
 ## Como Contribuir
 Adicione seus miis
-Por: Beatriz Rodrigues Braga & Willyam Andrade Medeiros
