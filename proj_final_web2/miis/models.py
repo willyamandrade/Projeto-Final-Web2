@@ -13,11 +13,6 @@ def criar_escolhas(escolhas : list):
 
         return escolhas_legais
 
-class Perfil(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    foto = models.ImageField(upload_to='perfis/', null=True, blank=True)
-    email_confirmado = models.BooleanField(default=False)
-
 class Mii(models.Model):
     # Escolhas
     personalidade_escolha = {"0":"Achiever", "1":"Maverick", "2":"Rogue", "3":"Visionary", "4":"Buddy", "5":"Cheerleader", "6":"Daydreamer", "7":"Sweetie", "8":"Charmer", "9":"Dynamo", "10":"Go-Getter", "11":"Merrymaker", "12":"Observer", "13":"Perfectionist", "14":"Thinker", "15":"Strategist"}
