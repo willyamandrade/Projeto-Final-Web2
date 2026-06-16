@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from accounts.models import Perfil
+
 # Create your models here.
 
 def criar_escolhas(escolhas : list):
@@ -53,33 +54,36 @@ class Mii(models.Model):
 
     nome_mii = models.CharField(
         max_length=20
-    ),
+    )
     idade_mii = models.PositiveIntegerField(
-        blank=True
-    ),
+        blank=True,
+        null=True
+    )
     datadenascimento_mii = models.DateField(
-        blank=True
-    ),
-    comidasfavorita1_mii = models.OneToOneField(Comida, on_delete=models.SET_NULL,
-        blank=True
-    ),
-    comidasfavorita2_mii = models.OneToOneField(Comida, on_delete=models.SET_NULL,
-        blank=True
-    ),
+        blank=True,
+        null=True
+    )
+    comidafavorita1_mii = models.OneToOneField(Comida, on_delete=models.SET_NULL,
+        blank=True, null=True, related_name='favorita1_mii'
+    )
+    comidafavorita2_mii = models.OneToOneField(Comida, on_delete=models.SET_NULL,
+        blank=True, null=True, related_name='favorita2_mii'
+    )
     personalidade_mii = models.CharField(
         choices=personalidade_escolha
-    ),
+    )
     genero_mii = models.CharField(
         choices=genero_escolha
-    ),
+    )
     generoquegosta_mii = models.CharField(
         choices=generoquegosta_escolha,
-        blank=True
-    ),
+        blank=True,
+        null=True
+    )
     felicidade_mii = models.IntegerField(
-
-    ),
-    ilha_mii = models.ForeignKey(Ilha, on_delete=models.SET_NULL),
+        default=0
+    )
+    ilha_mii = models.ForeignKey(Ilha, on_delete=models.CASCADE)
 
     # Funções
 
