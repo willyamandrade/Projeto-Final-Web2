@@ -11,5 +11,8 @@
     <p>E-mail: {{ user.email }}</p>
     <p>Conta ativada? {{ user.perfil.email_confirmado|yesno:"Sim,Não" }}</p>
 
-    <a href="{% url 'logout' %}">Sair do sistema</a>
+    <form action="{% url 'logout' %}" method="POST">
+        {% csrf_token %}
+        <button type="submit">Sair do Sistema</button>
+    </form>
 </html>

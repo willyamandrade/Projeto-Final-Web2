@@ -5,9 +5,18 @@
 <html>
     <h2>Entrar no Sistema</h2>
 
+    {% for message in messages %}
+    
+        <div>
+            {{ message }}
+        </div>
+
+    {% endfor %}
+
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Acessar</button>
     </form>
+    <p>Não tem conta? <a href={% url 'cadastrar' %}>Criar conta</a></p>
 </html>

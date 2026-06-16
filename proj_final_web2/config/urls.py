@@ -23,8 +23,8 @@ from config import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('conta/', include('accounts.urls')),
-    path('', include('miis.urls')),
+    path('', include('accounts.urls')),
+    path('miis/', include('miis.urls')),
 ]
 
 if settings.DEBUG:
