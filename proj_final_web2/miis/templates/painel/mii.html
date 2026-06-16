@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Painel de Miis</title>
+</head>
+<body>
+    <a href="/adicionar/">Adicionar Mii</a>
+
+    <table>
+        <thead>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Data de Nascimento</th>
+            <th>Comida Favorita 01</th>
+            <th>Comida Favorita 02</th>
+            <th>Personalidade</th>
+            <th>Gênero</th>
+            <th>Gênero que gosta</th>
+            <th>Felicidade</th>
+            <th>Ilha em que mora</th>
+        </thead>
+        {% for mii in miis %}
+            <td>{{mii.nome_mii}}</td>
+            <td>{{mii.idade_mii}}</td>
+            <td>{{mii.datadenascimento_mii}}</td>
+            <td>{{mii.comidafavorita1_mii}}</td>
+            <td>{{mii.comidafavorita2_mii}}</td>
+            <td>{{mii.personalidade_mii}}</td>
+            <td>{{mii.genero_mii}}</td>
+            <td>{{mii.generoquegosta_mii}}</td>
+            <td>{{mii.felicidade_mii}}</td>
+            <td>{{mii.ilha_mii}}</td>
+            <td><a href="/editar/{{mii.id}}">Editar</a></td>
+            <td><a href="/editar/{{mii.id}}">Excluir</a></td>
+        {% endfor %}
+    </table>
+</body>
+</html>

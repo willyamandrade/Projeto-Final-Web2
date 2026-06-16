@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from accounts.models import Perfil
 # Create your models here.
 
 def criar_escolhas(escolhas : list):
@@ -13,6 +13,36 @@ def criar_escolhas(escolhas : list):
 
         return escolhas_legais
 
+class Ilha(models.Model):
+    # Escolhas
+
+
+    # Atributos/Campos
+    nome_ilha = models.CharField(
+
+    )
+    proprietario_ilha = models.OneToOneField(Perfil, on_delete=models.CASCADE)
+    # Funções
+
+    def __str__(self):
+        return self.nome_ilha
+
+class Comida(models.Model):
+    # Escolhas
+
+
+    # Atributos/Campos
+    sabor_comida = models.CharField(
+
+    )
+    nome_comida = models.CharField(
+
+    )
+
+    # Funções
+    def __str__(self):
+        return self.nome_comida
+
 class Mii(models.Model):
     # Escolhas
     personalidade_escolha = {"0":"Achiever", "1":"Maverick", "2":"Rogue", "3":"Visionary", "4":"Buddy", "5":"Cheerleader", "6":"Daydreamer", "7":"Sweetie", "8":"Charmer", "9":"Dynamo", "10":"Go-Getter", "11":"Merrymaker", "12":"Observer", "13":"Perfectionist", "14":"Thinker", "15":"Strategist"}
@@ -23,100 +53,35 @@ class Mii(models.Model):
 
     nome_mii = models.CharField(
         max_length=20
-    )
+    ),
     idade_mii = models.PositiveIntegerField(
         blank=True
-    )
+    ),
     datadenascimento_mii = models.DateField(
         blank=True
-    )
-    comidasfavoritas_mii1 = models.CharField(
+    ),
+    comidasfavorita1_mii = models.OneToOneField(Comida, on_delete=models.SET_NULL,
         blank=True
-    )
-    comidasfavoritas_mii2 = models.CharField(
+    ),
+    comidasfavorita2_mii = models.OneToOneField(Comida, on_delete=models.SET_NULL,
         blank=True
-    )
+    ),
     personalidade_mii = models.CharField(
         choices=personalidade_escolha
-    )
-    generomii = models.CharField(
+    ),
+    genero_mii = models.CharField(
         choices=genero_escolha
-    )
-    generoquegostamii = models.CharField(
+    ),
+    generoquegosta_mii = models.CharField(
         choices=generoquegosta_escolha,
         blank=True
-    )
+    ),
     felicidade_mii = models.IntegerField(
 
-    )
+    ),
+    ilha_mii = models.ForeignKey(Ilha, on_delete=models.SET_NULL),
 
     # Funções
 
-    
-
-
-class Ilha(models.Model):
-    # Escolhas
-
-
-    # Atributos/Campos
-    nome_ilha = models.CharField(
-
-    )
-    proprietario_ilha = models.CharField(
-        
-    )
-    # Funções
-
-    
-
-class Item(models.Model):
-    # Escolhas
-
-
-    # Atributos/Campos
-    nome_item = models.CharField(
-
-    )
-    categoria_item = models.CharField(
-
-    )
-
-    # Funções
-
-    
-
-class Comida(Item):
-    # Escolhas
-
-
-    # Atributos/Campos
-    sabor_comida = models.CharField(
-
-    )
-
-    # Funções
-
-    
-
-class Observacao(models.Model):
-    # Escolhas
-
-
-    # Atributos/Campos
-    titulo_obs = models.CharField(
-
-    )
-    horario_obs = models.TimeField(
-
-    )
-    data_obs = models.DateField(
-
-    )
-    descricao_obs = models.CharField(
-
-    )
-
-    # Funções
-
-    
+    def __str__(self):
+        return self.nome_mii

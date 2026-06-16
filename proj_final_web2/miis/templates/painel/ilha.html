@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Painel de Ilha</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <th>Nome da Ilha</th>
+        </thead>
+        {% for ilha in ilhas %}
+            <td>{{ilha.nome_ilha}}</td>
+        {% endfor %}
+    </table>
+</body>
+</html>
