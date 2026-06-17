@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Deletar Mii</title>
+</head>
+<body>
+    <h2>Quer mesmo deletar o mii {{mii.nome_mii}}?</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <a href="{% url 'painelmii' %}">Cancelar</a>
+        <button type="submit">Confirmar</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Deletar Mii</title>
+</head>
+<body>
+    <h2>Você perderá todos os miis cadastrados na ilha.</h2>
+    <h2>Quer mesmo deletar a ilha {{ilha.nome_ilha}}?</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <a href="{% url 'painelilha' %}">Cancelar</a>
+        <button type="submit">Confirmar</button>
+    </form>
+</body>
+</html>

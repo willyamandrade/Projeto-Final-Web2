@@ -4,14 +4,20 @@
     <title>Painel de Ilha</title>
 </head>
 <body>
-    <a href='add_ilha'>Adicionar Ilha</a>
+    <a href="{% url 'home' %}">Voltar</a>
+    <a href="{% url 'add_ilha' %}">Adicionar Ilha</a>
     <table>
         <thead>
             <th>Nome da Ilha</th>
         </thead>
         {% for ilha in ilhas %}
-            <td>{{ilha.nome_ilha}}</td>
+            <tr>
+                <td><a href="{% url 'painelmii' %}">{{ilha.nome_ilha}}</a></td>
+                <td><a href="edit_ilha/{{ilha.id}}">Editar</a></td>
+                <td><a href="del_ilha/{{ilha.id}}">Excluir</a></td>
+            </tr>
         {% endfor %}
+        
     </table>
 </body>
 </html>

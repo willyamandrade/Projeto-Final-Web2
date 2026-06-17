@@ -4,7 +4,8 @@
     <title>Painel de Miis</title>
 </head>
 <body>
-    <a href=add_mii>Adicionar novo Mii</a>
+    <a href="{% url 'painelilha' %}">Voltar</a>
+    <a href="{% url 'add_mii' %}">Adicionar novo Mii</a>
 
     <table>
         <thead>
@@ -20,6 +21,7 @@
             <th>Ilha em que mora</th>
         </thead>
         {% for mii in miis %}
+        <tr>
             <td>{{mii.nome_mii}}</td>
             <td>{{mii.idade_mii}}</td>
             <td>{{mii.datadenascimento_mii}}</td>
@@ -30,8 +32,9 @@
             <td>{{mii.generoquegosta_mii}}</td>
             <td>{{mii.felicidade_mii}}</td>
             <td>{{mii.ilha_mii}}</td>
-            <td><a href="/editar/{{mii.id}}">Editar</a></td>
-            <td><a href="/editar/{{mii.id}}">Excluir</a></td>
+            <td><a href="edit_mii/{{mii.id}}">Editar</a></td>
+            <td><a href="del_mii/{{mii.id}}">Excluir</a></td>
+        </tr>   
         {% endfor %}
     </table>
 </body>

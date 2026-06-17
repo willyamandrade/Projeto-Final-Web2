@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar ilha</title>
+</head>
+<body>
+    <a href="{% url 'painelilha' %}">Voltar</a>
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.as_p }}
+        <input type="submit" value="Adicionar">
+        {% csrf_token %}
+    </form>
+</body>
+</html>

@@ -9,13 +9,11 @@
         <p><em>Nenhuma foto de perfil cadastrada</em></p>
     {% endif %}
     <p>E-mail: {{ user.email }}</p>
-    <p>Conta ativada? {{ user.perfil.email_confirmado|yesno:"Sim,Não" }}</p>
 
     <form action="{% url 'logout' %}" method="POST">
         {% csrf_token %}
         <button type="submit">Sair do Sistema</button>
     </form>
 
-    <a href='miis/painelmii'>Painel de Miis</a>
-    <a href='miis/painelilha'>Painel de Ilhas</a>
+    <a href='{% url 'painelilha' %}'>Painel de Ilhas</a>
 </html>

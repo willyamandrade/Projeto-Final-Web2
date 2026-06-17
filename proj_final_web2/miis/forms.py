@@ -19,10 +19,7 @@ class MiiForm(forms.ModelForm):
             'ilha_mii' : 'Mora em',
         }
 
-    # def __init__(self, *args, **kwargs):
-    #     super(MiiForm, self).__init__(*args, **kwargs)
-    #     for visible in self.visible_fields():
-    #         visible.field.widget.attrs['class'] = 'form-control'
+
 
 class IlhaForm(forms.ModelForm):
     class Meta:
@@ -35,7 +32,3 @@ class IlhaForm(forms.ModelForm):
 
         
 
-    # def __init__(self, *args, **kwargs):
-    #     super(IlhaForm, self).__init__(*args, **kwargs)
-    #     for visible in self.visible_fields():
-    #         visible.field.widget.attrs['class'] = 'form-control'
