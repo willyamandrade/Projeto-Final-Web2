@@ -7,6 +7,7 @@ from django.utils.encoding import force_bytes
 from .forms import *
 from django.contrib.auth.decorators import login_required
 from django.utils.http import urlsafe_base64_decode
+from miis.models import Ilha
 
 def cadastrar(request):
     if request.method == 'POST':
@@ -48,7 +49,15 @@ def ativar_conta(request, uidb64, token):
     
 @login_required # <-- IMPEDE acesso de usuários não logados
 def home(request):
+    
     if not request.user.perfil.email_confirmado:
         messages.error(request, 'Opsss, sua conta ainda não foi confirmada!')
         return redirect('login')
-    return render(request, 'accounts/home.html')
+
+    id_user = Perfil.objects.get(user=request.user)
+    ilhas = Ilha.objects.filter(proprietario_ilha_id=id_user)
+    return render(request, 'accounts/home.html', {'ilhas':ilhas})
+
+    
+
+

@@ -10,6 +10,13 @@ class CadastroForm(forms.ModelForm):
         model = User
         fields = ('username', 'email', 'password')
 
+        def __init__(self, *args, **kwargs):
+            super(CadastroForm, self).__init__(*args, **kwargs)
+
+            for fieldname in ['username', 'email', 'password']:
+                self.fields['username'].help_text = None
+
+
         widget = {
             'username': forms.TextInput(attrs={'class': 'form-control'}),
             'email': forms.TextInput(attrs={'class': 'form-control'}),
@@ -23,3 +30,5 @@ class CadastroForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+    
+print(CadastroForm)

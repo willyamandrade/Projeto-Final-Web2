@@ -21,12 +21,12 @@
             <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" clas="botao1">Cadastrar e Enviar E-mail</button>
+            <button type="submit" class="botao1">Criar e Enviar E-mail</button>
             </form>
 
             <p>Já tem conta? <a href="{% url 'login' %}">Faça Login</a></p>
         </div>
-        
+
     </div>
     
 </html>

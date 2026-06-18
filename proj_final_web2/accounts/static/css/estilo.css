@@ -70,7 +70,18 @@ form{
 
 
 
+/*imagens*/
 
+.mii {
+    height: 10px;
+    width: 10px;
+
+}
+
+.bicho {
+    height: 120px;
+    width: auto;
+}
 
 
 /*fontes*/

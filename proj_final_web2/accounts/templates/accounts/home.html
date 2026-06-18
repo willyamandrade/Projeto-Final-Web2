@@ -1,19 +1,61 @@
+{% load static %}
 <!DOCTYPE html>
 
 <html>
-    <h2>Bem-vindo, {{ user.username }}!</h2>
+    <head>
+        <title>NovaConta</title>
+        <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Copse&family=Palette+Mosaic&display=swap" rel="stylesheet">
+    </head>
 
-    {% if user.perfil.foto %}
-        <img src="{{ user.perfil.foto.url }}" width="150">
-    {% else %}
-        <p><em>Nenhuma foto de perfil cadastrada</em></p>
-    {% endif %}
-    <p>E-mail: {{ user.email }}</p>
+    <header>
+        RegistreMii!
+    </header>
 
-    <form action="{% url 'logout' %}" method="POST">
-        {% csrf_token %}
-        <button type="submit">Sair do Sistema</button>
-    </form>
+    <div class="parent">
 
-    <a href='{% url 'painelilha' %}'>Painel de Ilhas</a>
+        <div class="filho">
+            <div>
+                {% if user.perfil.foto %}
+                <img src="{{ user.perfil.foto.url }}" width="150">
+                {% else %}
+                <img src="..\static\imgs\fotodf.jpg" width="150">
+                {% endif %}
+            </div>
+            
+            <div>
+                <p>Nome: {{user.username}}</p>
+                <p>E-mail: {{ user.email }}</p>
+            </div>
+
+            <div>
+                <p>Ver todos dos miis</p>
+                <img class= "bicho" src="..\static\imgs\Mii.webp">
+            </div>
+
+            <div class="qntmiis">
+                <p>X</p>
+            </div>
+
+            <div class="li">
+                <div class="painelnav">
+                    <div class="itemnav"><a href="{% url 'add_ilha' %}">Adicionar</a></div>
+                    <div class="itemnav"><a href="edit_ilha/{{ilha.id}}">Editar</a></div>
+                    <div class="itemnav"><a href="del_ilha/{{ilha.id}}">Deletar</a></div>
+                </div>
+                <a href='{% url 'painelilha' %}'>Painel de Ilhas</a>
+            </div>
+
+            <form action="{% url 'logout' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit">Sair do Sistema</button>
+            </form>
+
+        </div>
+
+    </div>
+
+    
 </html>
