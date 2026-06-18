@@ -49,6 +49,6 @@ def ativar_conta(request, uidb64, token):
 @login_required # <-- IMPEDE acesso de usuários não logados
 def home(request):
     if not request.user.perfil.email_confirmado:
-        messages.error(request, 'Opssssssss, sua conta ainda não foi ☆*: .｡. Confirmada .｡.:*☆.')
+        messages.error(request, 'Opsss, sua conta ainda não foi confirmada!')
         return redirect('login')
     return render(request, 'accounts/home.html')

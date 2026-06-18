@@ -8,7 +8,13 @@ class CadastroForm(forms.ModelForm):
 
     class Meta():
         model = User
-        fields = ['username', 'email', 'password']
+        fields = ('username', 'email', 'password')
+
+        widget = {
+            'username': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.TextInput(attrs={'class': 'form-control'}),
+            'password': forms.TextInput(attrs={'class': 'form-control'}),
+        }
 
 
     def save(self, commit=True):
