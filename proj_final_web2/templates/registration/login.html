@@ -1,22 +1,42 @@
+{% load static %}
 <!-- templates/registration/login.html -->
 
 <!DOCTYPE html>
 
 <html>
-    <h2>Entrar no Sistema</h2>
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Copse&family=Palette+Mosaic&display=swap" rel="stylesheet">
+    </head>
 
-    {% for message in messages %}
-    
-        <div>
-            {{ message }}
+    <header>
+        RegistreMii!
+    </header>
+
+    <div class="parent">
+        <div class="filho">
+            <p class="titulo">Entrar no Sistema</p>
+
+            {% for message in messages %}
+        
+            <div>
+                {{ message }}
+            </div>
+
+            {% endfor %}
+        
+
+            <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="botao1">Acessar</button>
+            </form>
+
+            <p>Não tem conta? <a href={% url 'cadastrar' %}>Criar conta</a></p>
         </div>
-
-    {% endfor %}
-
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Acessar</button>
-    </form>
-    <p>Não tem conta? <a href={% url 'cadastrar' %}>Criar conta</a></p>
+    </div>
+    
 </html>
