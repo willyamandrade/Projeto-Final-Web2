@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>NovaConta</title>
+        <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Copse&family=Palette+Mosaic&display=swap" rel="stylesheet">
+    </head>
+
+    <header>
+        RegistreMii!
+    </header>
+
+    <div class="parent">
+
+        <div class="filho">
+            <p class="titulo">Crie sua Conta</p>
+            <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" clas="botao1">Cadastrar e Enviar E-mail</button>
+            </form>
+
+            <p>Já tem conta? <a href="{% url 'login' %}">Faça Login</a></p>
+        </div>
+        
+    </div>
+    
+</html>
