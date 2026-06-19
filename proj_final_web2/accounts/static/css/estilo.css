@@ -16,7 +16,7 @@ html {
 
 .parent {
     width: 40%;
-    height: 70%;
+    min-height: 70%;
     background-color:rgb(255, 255, 255);
     align-self: center;
     align-content: center;
@@ -29,12 +29,39 @@ html {
     left: 50%;
     top: 57%;
     transform: translate(-50%, -50%);
+    flex-direction: column;
+
+}
+
+.parent2 {
+    width: 90%;
+    min-height: 70%;
+    background-color:rgb(255, 255, 255);
+    align-self: center;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 30px;
+    font-family: "Copse", serif;
+    color:rgb(155, 179, 255);
+    position: absolute;
+    left: 50%;
+    top: 57%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
 
 }
 
 .filho {
     margin:auto;
     text-align: center;
+}
+
+.filho2 {
+    display:flex;
+    align-self: center;
+    align-content: center;
+    justify-content: center;
 }
 
 .form-control{
@@ -52,6 +79,104 @@ header{
 form{
     font-size: 20px;
 }
+
+.container{
+    display:flex;
+    align-items: center;
+    text-align: center;
+    align-self: center;
+
+}
+.container2{
+    display: flex;
+    text-align: center;
+    align-content: end;
+    padding-right: 70px;
+}
+
+.container3{
+    display:flex;
+    align-items: center;
+    text-align: center;
+    align-self: center;
+    margin-top: 15px;
+    
+    
+
+}
+
+.div4{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    align-self: center;
+    background-color: rgb(255, 255, 255);
+}
+
+.tabelai{
+    margin:auto;
+    padding-bottom: 50px;
+}
+
+.qntmiis{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40px;
+    width: 250px;
+    height: 200px;
+    background-color: rgb(255, 255, 255);
+    font-size: 65px;
+    border-color: rgb(90, 140, 206);
+    border-width: 2px;
+    border-radius: 20px;
+    border-style: solid;
+    font-family: "Palette Mosaic", system-ui;
+    color: rgb(255, 107, 107);
+    background-image: url(../imgs/quadriculado.jpg);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    
+}
+
+.li{
+    height: 100px;
+    text-align: justify;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 30px;
+    
+} 
+
+.itemnav{
+    margin: 5px;
+    text-align: center;
+}
+
+.dvs1{
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 45px;
+    text-align: justify;
+    font-size: 20px;
+}
+
+.painelnav{
+    display:flex;
+    height: 10px;
+    margin-bottom: 60px;
+}
+
+.tailhas{
+    width: 260px;
+    height: 350px;
+    margin-bottom: 30px;
+    background-color: rgb(224, 240, 255);
+    border-radius: 20px;
+    color:rgb(70, 84, 206);
+}
+
 /*botoes*/
 
 .botao1{
@@ -65,6 +190,32 @@ form{
     margin-bottom: 12px;
 }
 
+.legendapequena {
+    font-size: 14px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.textoa {
+    font-size: 20px;
+}
+
+.vtm {
+    align-self: bottom;
+}
+
+.nav2 {
+    margin-bottom: 20px;
+}
+
+.nav3{
+    display:flex;
+    align-self: center;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
 
 
 
@@ -73,14 +224,40 @@ form{
 /*imagens*/
 
 .mii {
-    height: 10px;
-    width: 10px;
+    height: 200px;
+    width: auto;
 
 }
 
 .bicho {
     height: 120px;
     width: auto;
+    padding-left: 10px;
+}
+
+.fotodeperfil {
+    border-radius: 10px;
+    object-fit: cover;
+    width: 230px;
+    height: 230px;
+    padding-left: 40px;
+    margin-top: 30px;
+}
+
+.imgilha {
+    height: 50%;
+    width: 50%;
+    margin: auto;
+}
+
+.icone {
+    height: 8%;
+    width: 8%;
+    margin: 30px;
+}
+
+.opcao {
+    margin: 40px;
 }
 
 
@@ -95,4 +272,15 @@ form{
   font-family: "Copse", serif;
   font-weight: 400;
   font-style: normal;
+}
+
+.chokokutai-regular {
+  font-family: "Chokokutai", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+ul {
+    list-style-type: none;
+    
 }
