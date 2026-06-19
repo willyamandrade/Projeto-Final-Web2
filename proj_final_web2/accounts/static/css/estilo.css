@@ -238,6 +238,7 @@ form{
 .fotodeperfil {
     border-radius: 10px;
     object-fit: cover;
+    object-position: center;
     width: 230px;
     height: 230px;
     padding-left: 40px;

@@ -19,7 +19,7 @@
             <a href="{% url 'painelmii' %}">Voltar</a>
             <form method="POST" enctype="multipart/form-data">
                 {{ form.as_p }}
-                <input type="submit" value="Adicionar">
+                <input type="submit" value="Editar">
                 {% csrf_token %}
             </form>
         </div>
