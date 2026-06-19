@@ -1,14 +1,27 @@
+{% load static %}
 <!DOCTYPE html>
+
 <html>
-<head>
-    <title>Adicionar ilha</title>
-</head>
-<body>
-    <a href="{% url 'painelilha' %}">Voltar</a>
-    <form method="POST" enctype="multipart/form-data">
-        {{ form.as_p }}
-        <input type="submit" value="Adicionar">
-        {% csrf_token %}
-    </form>
-</body>
+    <head>
+        <title>Adicionar ilha</title>
+        <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Chokokutai&family=Copse&family=Palette+Mosaic&display=swap" rel="stylesheet">
+    </head>
+
+    <header>
+        RegistreMii!
+    </header>
+
+    <body>
+        <div class="parent">
+            <a href="{% url 'painelilha' %}">Voltar</a>
+            <form method="POST" enctype="multipart/form-data">
+                {{ form.as_p }}
+                <input type="submit" value="Adicionar">
+                {% csrf_token %}
+            </form>
+        </div>
+    </body>
 </html>

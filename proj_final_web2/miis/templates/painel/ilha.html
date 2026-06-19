@@ -1,23 +1,54 @@
+{% load static %}
+
 <!DOCTYPE html>
+
 <html>
-<head>
-    <title>Painel de Ilha</title>
-</head>
-<body>
-    <a href="{% url 'home' %}">Voltar</a>
-    <a href="{% url 'add_ilha' %}">Adicionar Ilha</a>
-    <table>
-        <thead>
-            <th>Nome da Ilha</th>
-        </thead>
-        {% for ilha in ilhas %}
-            <tr>
-                <td><a href="{% url 'painelmii' %}">{{ilha.nome_ilha}}</a></td>
-                <td><a href="edit_ilha/{{ilha.id}}">Editar</a></td>
-                <td><a href="del_ilha/{{ilha.id}}">Excluir</a></td>
-            </tr>
-        {% endfor %}
-        
-    </table>
-</body>
+    <head>
+        <title>Minhas Ilha</title>
+        <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Chokokutai&family=Copse&family=Palette+Mosaic&display=swap" rel="stylesheet">
+    </head>
+
+    <header>
+        RegistreMii!
+    </header>
+
+    <body>
+        <div class="parent">
+
+            <div class="filho">
+
+                <div class="div4">
+
+                    <img class="imgilha" src="..\static\imgs\ilha.png">
+                </div>
+
+                <div class="nav2">
+                    <a href="{% url 'home' %}" class="itemnav">Voltar</a>
+                    <a href="{% url 'add_ilha' %}"class="itemnav">Adicionar Ilha +</a>
+                </div>
+
+                
+
+                
+                <table class="tabelai">
+                    <thead>
+                        <th>Nome da Ilha</th>
+                    </thead>
+                    {% for ilha in ilhas %}
+                    <tr>
+                        <td><a href="{% url 'painelmii' %}">{{ilha.nome_ilha}}</a></td>
+                        <td><a href="edit_ilha/{{ilha.id}}">Editar</a></td>
+                        <td><a href="del_ilha/{{ilha.id}}">Excluir</a></td>
+                    </tr>
+                    {% endfor %}
+                
+                </table>
+
+            </div>
+            
+        </div>
+    </body>
 </html>

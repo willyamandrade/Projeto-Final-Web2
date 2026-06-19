@@ -1,41 +1,65 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Painel de Miis</title>
-</head>
-<body>
-    <a href="{% url 'painelilha' %}">Voltar</a>
-    <a href="{% url 'add_mii' %}">Adicionar novo Mii</a>
+    <head>
+        <title>Meus Miis</title>
+        <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Chokokutai&family=Copse&family=Palette+Mosaic&display=swap" rel="stylesheet">
+    </head>
 
-    <table>
-        <thead>
-            <th>Nome</th>
-            <th>Idade</th>
-            <th>Data de Nascimento</th>
-            <th>Comida Favorita 01</th>
-            <th>Comida Favorita 02</th>
-            <th>Personalidade</th>
-            <th>Gênero</th>
-            <th>Gênero que gosta</th>
-            <th>Felicidade</th>
-            <th>Ilha em que mora</th>
-        </thead>
-        {% for mii in miis %}
-        <tr>
-            <td>{{mii.nome_mii}}</td>
-            <td>{{mii.idade_mii}}</td>
-            <td>{{mii.datadenascimento_mii}}</td>
-            <td>{{mii.comidafavorita1_mii}}</td>
-            <td>{{mii.comidafavorita2_mii}}</td>
-            <td>{{mii.personalidade_mii}}</td>
-            <td>{{mii.genero_mii}}</td>
-            <td>{{mii.generoquegosta_mii}}</td>
-            <td>{{mii.felicidade_mii}}</td>
-            <td>{{mii.ilha_mii}}</td>
-            <td><a href="edit_mii/{{mii.id}}">Editar</a></td>
-            <td><a href="del_mii/{{mii.id}}">Excluir</a></td>
-        </tr>   
-        {% endfor %}
-    </table>
-</body>
+    <header>
+        RegistreMii!
+    </header>
+
+    <body>
+        <div class="parent2">
+
+            <div class="nav3">
+                <a class="opcao" href="{% url 'painelilha' %}">Voltar</a>
+                <a class="opcao" href="{% url 'add_mii' %}">Adicionar novo Mii</a>
+
+                <img class="icone" src="..\static\imgs\icon1.png">
+                <img class="icone" src="..\static\imgs\icon2.png">
+                <img class="icone" src="..\static\imgs\icon3.png">
+                <img class="icone" src="..\static\imgs\icon4.png">
+            </div>
+
+            <div class="filho2">
+                
+
+                <table>
+                    <thead>
+                        <th>Nome</th>
+                        <th>Idade</th>
+                        <th>Data de Nascimento</th>
+                        <th>Comida Favorita 01</th>
+                        <th>Comida Favorita 02</th>
+                        <th>Personalidade</th>
+                        <th>Gênero</th>
+                        <th>Gênero que gosta</th>
+                        <th>Felicidade</th>
+                        <th>Ilha em que mora</th>
+                    </thead>
+                    {% for mii in miis %}
+                    <tr>
+                        <td>{{mii.nome_mii}}</td>
+                        <td>{{mii.idade_mii}}</td>
+                        <td>{{mii.datadenascimento_mii}}</td>
+                        <td>{{mii.comidafavorita1_mii}}</td>
+                        <td>{{mii.comidafavorita2_mii}}</td>
+                        <td>{{mii.personalidade_mii}}</td>
+                        <td>{{mii.genero_mii}}</td>
+                        <td>{{mii.generoquegosta_mii}}</td>
+                        <td>{{mii.felicidade_mii}}</td>
+                        <td>{{mii.ilha_mii}}</td>
+                        <td><a href="edit_mii/{{mii.id}}">Editar</a><br><a href="del_mii/{{mii.id}}">Excluir</a></td>
+                        <td></td>
+                    </tr>   
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </body>
 </html>
