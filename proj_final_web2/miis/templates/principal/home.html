@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Principal</title>
+        <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Chokokutai&family=Copse&family=Palette+Mosaic&display=swap" rel="stylesheet">
+    </head>
+
+    <header>
+        RegistreMii!
+    </header>
+
+    <div class="parent">
+
+        <div class="filho">
+            <div class="container">
+                <div class="dvs1">
+                    {% if user.perfil.foto %}
+                    <img class="fotodeperfil" src="{{ user.perfil.foto.url }}" width="150">
+                    {% else %}
+                    <img class="fotodeperfil" src="{% static 'imgs/fotodf.jpg' %}" width="150">
+                    {% endif %}
+                </div>
+
+                <div class="dvs1">
+                    <p>Nome: {{user.username}}</p>
+                    <p>E-mail: {{ user.email }}</p>
+
+                    <div class="container2">
+                        <p class="vtm"><a href="">Ver todos os miis</a></p>
+                        <img class= "bicho" src="{% static 'imgs/Mii.webp' %}">
+                    </div>
+                    
+                </div>
+
+
+
+            </div>
+            
+            <div class="container3">
+
+                <div class="qntmiis">
+                    <p>{{qtd_mii}}</p>
+                </div>
+
+                <div class="li">
+                    <div class="painelnav">
+                        <div class="itemnav"><a href="{% url 'add_ilha' %}">Adicionar</a></div>
+                    </div>
+                    <div class="tailhas">
+                        <ul>
+                            <li>
+                                <a href="{% url 'painelilha' %}">Painel de Ilhas</a>
+                            </li>
+                            <table class="tabelai">
+                                <thead>
+                                    <th>Nome da Ilha</th>
+                                </thead>
+                                {% for ilha in ilhas %}
+                                <tr>
+                                    <td><a href="{% url 'painelmii' ilha.id %}">{{ilha.nome_ilha}}</a></td>
+                                    <td><a href="{% url 'edit_ilha' ilha.id %}">Editar</a></td>
+                                    <td><a href="{% url 'del_ilha' ilha.id %}">Excluir</a></td>
+                                </tr>
+                                {% endfor %}
+                            
+                            </table>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+
+            
+
+            <form action="{% url 'logout' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="botao1">Sair do Sistema</button>
+            </form>
+
+        </div>
+
+    </div>
+
+    
+</html>

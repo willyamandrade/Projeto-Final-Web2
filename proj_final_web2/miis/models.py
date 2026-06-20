@@ -24,7 +24,11 @@ class Mii(models.Model):
     generoquegosta_escolha = {"Hetero":"Hetero", "Homo":"Homo", "Bi":"Bi"}
 
     # Atributos/Campos
-
+    foto_mii = models.ImageField(
+        blank=True,
+        null=True,
+        upload_to='fotos_miis/'
+    )
     nome_mii = models.CharField(
         max_length=20
     )

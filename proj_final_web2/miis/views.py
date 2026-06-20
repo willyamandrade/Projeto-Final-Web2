@@ -1,11 +1,30 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
+from django.contrib import messages
 from .models import Mii, Ilha
 from .forms import *
 from accounts.models import Perfil
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+
+@login_required # <-- IMPEDE acesso de usuários não logados
+def home(request):
+    
+    if not request.user.perfil.email_confirmado:
+        messages.error(request, 'Opsss, sua conta ainda não foi confirmada!')
+        return redirect('login')
+    
+    id_user = request.user.perfil.id
+    ilhas = Ilha.objects.filter(proprietario_ilha_id=id_user)
+    qtd_mii = 0
+    
+    # itera por cada ilha do usuário, contando o número de miis que o pertencem 
+    for ilha in ilhas:
+        ilha_do_usuario = Mii.objects.filter(ilha_mii=ilha)
+        qtd_mii += ilha_do_usuario.count()
+
+    return render(request, 'principal/home.html', {'ilhas':ilhas, 'qtd_mii' : qtd_mii})
 
 @login_required
 def painel_mii(request, ilha_id):
@@ -17,7 +36,7 @@ def painel_mii(request, ilha_id):
 @login_required
 def painel_ilha(request):
 
-    id_user = Perfil.objects.get(user=request.user)
+    id_user = request.user.perfil.id
     ilhas = Ilha.objects.filter(proprietario_ilha_id=id_user)
 
     return render(request, "painel/ilha.html", {'ilhas':ilhas})
@@ -88,7 +107,7 @@ def del_mii(request, ilha_id, id):
 
 @login_required
 def del_ilha(request, id):
-    # 
+
     ilha_deletar = Ilha.objects.get(pk=id)
 
     if request.method=="POST":

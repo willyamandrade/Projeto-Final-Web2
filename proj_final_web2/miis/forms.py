@@ -2,16 +2,12 @@ from django import forms
 from .models import Mii, Ilha
 
 class MiiForm(forms.ModelForm):
-    datadenascimento_mii = forms.DateField(
-        label='Data de Nascimento', 
-        widget=forms.DateInput(attrs={"type": "date"}),
-    )
-
     class Meta:
         model=Mii
-        fields=('nome_mii', 'idade_mii', 'datadenascimento_mii','comidafavorita1_mii','comidafavorita2_mii','personalidade_mii','genero_mii','generoquegosta_mii','felicidade_mii')
+        fields=('foto_mii', 'nome_mii', 'idade_mii', 'datadenascimento_mii','comidafavorita1_mii','comidafavorita2_mii','personalidade_mii','genero_mii','generoquegosta_mii','felicidade_mii')
 
         labels = {
+            'foto_mii' : 'Foto',
             'nome_mii' : 'Nome',
             'idade_mii' : 'Idade',
             'datadenascimento_mii' : 'Data de Nascimento',
@@ -23,6 +19,9 @@ class MiiForm(forms.ModelForm):
             'felicidade_mii': 'Nível de Felicidade',
         }
 
+        widgets = {
+            'datadenascimento_mii' : forms.DateInput(attrs={'type': 'date'}, format='%Y-%m-%d')
+        }
 
 
 class IlhaForm(forms.ModelForm):

@@ -1,7 +1,6 @@
 from django.shortcuts import redirect, render
-from django.core.mail import send_mail, EmailMessage
+from django.core.mail import send_mail
 from django.contrib.auth.tokens import default_token_generator
-from django.contrib import messages
 from django.utils.http import urlsafe_base64_encode
 from django.utils.encoding import force_bytes
 from .forms import *
@@ -46,21 +45,3 @@ def ativar_conta(request, uidb64, token):
         return redirect('login')
     else:
         return render(request, 'accounts/token_invalido.html')
-    
-@login_required # <-- IMPEDE acesso de usuários não logados
-def home(request):
-    
-    if not request.user.perfil.email_confirmado:
-        messages.error(request, 'Opsss, sua conta ainda não foi confirmada!')
-        return redirect('login')
-
-    id_user = Perfil.objects.get(user=request.user)
-    ilhas = Ilha.objects.filter(proprietario_ilha_id=id_user)
-    qtd_mii = 0
-    
-    # itera por cada ilha do usuário, contando o número de miis que o pertencem 
-    for ilha in ilhas:
-        ilha_do_usuario = Mii.objects.filter(ilha_mii=ilha)
-        qtd_mii += ilha_do_usuario.count()
-
-    return render(request, 'accounts/home.html', {'ilhas':ilhas, 'qtd_mii' : qtd_mii})
