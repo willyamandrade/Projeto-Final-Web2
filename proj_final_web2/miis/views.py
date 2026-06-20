@@ -27,21 +27,22 @@ def home(request):
     return render(request, 'principal/home.html', {'ilhas':ilhas, 'qtd_mii' : qtd_mii})
 
 @login_required
-def painel_mii(request, ilha_id):
+def painel(request, ilha_id):
 
     ilha = Ilha.objects.get(pk=ilha_id)
     miis = Mii.objects.filter(ilha_mii=ilha_id)
     qtd_mii = miis.count()
 
-    return render(request, "painel/mii.html", {'miis' : miis, 'ilha':ilha, 'ilha_id' : ilha_id, 'qtd_mii':qtd_mii})
+    return render(request, "painel/painel.html", {'miis' : miis, 'ilha':ilha, 'ilha_id' : ilha_id, 'qtd_mii':qtd_mii})
 
 @login_required
 def painel_ilha(request):
+    # DESCONTINUADO 
 
     id_user = request.user.perfil.id
     ilhas = Ilha.objects.filter(proprietario_ilha_id=id_user)
 
-    return render(request, "painel/ilha.html", {'ilhas':ilhas})
+    return render(request, "painel/painel.html", {'ilhas':ilhas})
 
 @login_required
 def add_mii(request, ilha_id):
@@ -53,7 +54,7 @@ def add_mii(request, ilha_id):
         mii_legal.ilha_mii = Ilha.objects.get(pk=ilha_id)
         mii_legal.save()
 
-        return redirect('painelmii', ilha_id)
+        return redirect('painel', ilha_id)
 
     return render(request, "painel/add_mii.html", {'form':form, 'ilha_id' : ilha_id})
 
@@ -78,7 +79,7 @@ def edit_mii(request, ilha_id, id):
 
     if form.is_valid():
         form.save()
-        return redirect('painelmii', ilha_id)
+        return redirect('painel', ilha_id)
 
     return render(request, "painel/edit_mii.html", {'form':form, 'ilha_id' : ilha_id})
 
@@ -103,7 +104,7 @@ def del_mii(request, ilha_id, id):
 
     if request.method=="POST":
         mii_deletar.delete()
-        return redirect('painelmii', ilha_id)
+        return redirect('painel', ilha_id)
     
     return render(request, 'painel/del_mii.html', {'mii' : mii_deletar, 'ilha_id' : ilha_id})
 
@@ -126,4 +127,17 @@ def todos_mii(request):
     miis = Mii.objects.filter(ilha_mii__in=ilhas)
     qtd_mii = miis.count()
 
-    return render(request, "painel/mii_todos.html", {'miis' : miis, 'qtd_mii':qtd_mii})
+    return render(request, "painel/todos_mii.html", {'miis' : miis, 'qtd_mii':qtd_mii})
+
+@login_required
+def detalhes_mii(request, ilha_id, id):
+    mii_detalhar = Mii.objects.get(pk=id)
+    form=MiiDetalheForm(request.POST or None,request.FILES or None, instance=mii_detalhar)
+
+    if form.is_valid():
+        form.save()
+        return redirect('painel', ilha_id)
+
+    return render(request, "painel/detalhes_mii.html", {'form' : form, 'mii' : mii_detalhar})
+
+    

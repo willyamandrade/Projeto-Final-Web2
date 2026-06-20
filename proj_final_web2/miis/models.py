@@ -60,6 +60,11 @@ class Mii(models.Model):
     felicidade_mii = models.IntegerField(
         default=0
     )
+    detalhes_mii = models.CharField(
+        blank=True,
+        null=True
+    )
+    data_criacao_mii = models.DateField(auto_now_add=True)
     ilha_mii = models.ForeignKey(Ilha, on_delete=models.CASCADE)
 
     # Funções

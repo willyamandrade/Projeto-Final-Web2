@@ -23,6 +23,18 @@ class MiiForm(forms.ModelForm):
             'datadenascimento_mii' : forms.DateInput(attrs={'type': 'date'}, format='%Y-%m-%d')
         }
 
+class MiiDetalheForm(forms.ModelForm):
+    class Meta:
+        model=Mii
+        fields=('detalhes_mii',)
+
+        labels={
+            'detalhes_mii' : 'Detalhes',
+        }
+
+        widgets={
+            'detalhes_mii' : forms.Textarea()
+        }
 
 class IlhaForm(forms.ModelForm):
     class Meta:
