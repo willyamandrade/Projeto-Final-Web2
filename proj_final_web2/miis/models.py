@@ -9,10 +9,9 @@ class Ilha(models.Model):
 
 
     # Atributos/Campos
-    nome_ilha = models.CharField(
-
-    )
-    proprietario_ilha = models.OneToOneField(Perfil, on_delete=models.CASCADE)
+    nome_ilha = models.CharField()
+    data_criacao_ilha = models.DateField(auto_now_add=True)
+    proprietario_ilha = models.ForeignKey(Perfil, on_delete=models.CASCADE)
     # Funções
 
     def __str__(self):
@@ -35,7 +34,7 @@ class Mii(models.Model):
     )
     datadenascimento_mii = models.DateField(
         blank=True,
-        null=True
+        null=True,
     )
     comidafavorita1_mii = models.CharField(
         blank=True, null=True

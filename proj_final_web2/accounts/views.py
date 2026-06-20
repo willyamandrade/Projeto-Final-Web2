@@ -7,7 +7,7 @@ from django.utils.encoding import force_bytes
 from .forms import *
 from django.contrib.auth.decorators import login_required
 from django.utils.http import urlsafe_base64_decode
-from miis.models import Ilha
+from miis.models import *
 
 def cadastrar(request):
     if request.method == 'POST':
@@ -56,8 +56,11 @@ def home(request):
 
     id_user = Perfil.objects.get(user=request.user)
     ilhas = Ilha.objects.filter(proprietario_ilha_id=id_user)
-    return render(request, 'accounts/home.html', {'ilhas':ilhas})
-
+    qtd_mii = 0
     
+    # itera por cada ilha do usuário, contando o número de miis que o pertencem 
+    for ilha in ilhas:
+        ilha_do_usuario = Mii.objects.filter(ilha_mii=ilha)
+        qtd_mii += ilha_do_usuario.count()
 
-
+    return render(request, 'accounts/home.html', {'ilhas':ilhas, 'qtd_mii' : qtd_mii})

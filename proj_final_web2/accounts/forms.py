@@ -2,14 +2,16 @@ from django import forms
 from django.contrib.auth.models import User
 from .models import Perfil
 
+
 class CadastroForm(forms.ModelForm):
+    email = forms.EmailField(required=True, label='Endereço de e-mail')
     senha = forms.CharField(widget=forms.PasswordInput)
     foto = forms.ImageField(required=False)
 
     class Meta():
         model = User
-        fields = ('username', 'email', 'password')
-
+        fields = ('username', 'email')
+        
         def __init__(self, *args, **kwargs):
             super(CadastroForm, self).__init__(*args, **kwargs)
 

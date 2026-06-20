@@ -5,7 +5,7 @@
 
 <html>
     <head>
-        <title>Home</title>
+        <title>Login</title>
         <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +35,7 @@
             <button type="submit" class="botao1">Acessar</button>
             </form>
 
-            <p>Não tem conta? <a href={% url 'cadastrar' %}>Criar conta</a></p>
+            <p>Não tem conta? <a href="{% url 'cadastrar' %}">Criar conta</a></p>
         </div>
     </div>
     

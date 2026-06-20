@@ -18,7 +18,7 @@
             <p>Quer mesmo deletar o mii {{mii.nome_mii}}?</p>
             <form method="POST">
                 {% csrf_token %}
-                <a href="{% url 'painelmii' %}">Cancelar</a>
+                <a href="{% url 'painelmii' ilha_id %}">Cancelar</a>
                 <button type="submit">Confirmar</button>
             </form>
         </div>

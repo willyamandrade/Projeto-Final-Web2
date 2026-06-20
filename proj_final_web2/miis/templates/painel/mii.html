@@ -18,12 +18,12 @@
 
             <div class="nav3">
                 <a class="opcao" href="{% url 'painelilha' %}">Voltar</a>
-                <a class="opcao" href="{% url 'add_mii' %}">Adicionar novo Mii</a>
+                <a class="opcao" href="{% url 'add_mii' ilha_id %}">Adicionar novo Mii</a>
 
-                <img class="icone" src="..\static\imgs\icon1.png">
-                <img class="icone" src="..\static\imgs\icon2.png">
-                <img class="icone" src="..\static\imgs\icon3.png">
-                <img class="icone" src="..\static\imgs\icon4.png">
+                <img class="icone" src="{% static 'imgs/icon1.png' %}">
+                <img class="icone" src="{% static 'imgs/icon2.png' %}">
+                <img class="icone" src="{% static 'imgs/icon3.png' %}">
+                <img class="icone" src="{% static 'imgs/icon4.png' %}">
             </div>
 
             <div class="filho2">
@@ -38,7 +38,7 @@
                         <th>Comida Favorita 02</th>
                         <th>Personalidade</th>
                         <th>Gênero</th>
-                        <th>Gênero que gosta</th>
+                        <th>Gênero que gosta</th> 
                         <th>Felicidade</th>
                         <th>Ilha em que mora</th>
                     </thead>
@@ -54,8 +54,7 @@
                         <td>{{mii.generoquegosta_mii}}</td>
                         <td>{{mii.felicidade_mii}}</td>
                         <td>{{mii.ilha_mii}}</td>
-                        <td><a href="edit_mii/{{mii.id}}">Editar</a><br><a href="del_mii/{{mii.id}}">Excluir</a></td>
-                        <td></td>
+                        <td><a href="{% url 'edit_mii' ilha_id mii.id %}">Editar</a><br><a href="{% url 'del_mii' ilha_id mii.id %}">Excluir</a></td>
                     </tr>   
                     {% endfor %}
                 </table>
