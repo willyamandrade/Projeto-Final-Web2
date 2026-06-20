@@ -1,21 +1,10 @@
+{% extends "base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
+{% block title %} Painel de Ilha {% endblock title %}
 
-<html>
-    <head>
-        <title>Minhas Ilhas</title>
-        <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Chokokutai&family=Copse&family=Palette+Mosaic&display=swap" rel="stylesheet">
-    </head>
+    {% block body %}
 
-    <header>
-        RegistreMii!
-    </header>
-
-    <body>
         <div class="parent">
 
             <div class="filho">
@@ -50,5 +39,5 @@
             </div>
             
         </div>
-    </body>
-</html>
+        
+    {% endblock body %}

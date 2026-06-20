@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>{% block title %}Título{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Chokokutai&family=Copse&family=Palette+Mosaic&display=swap" rel="stylesheet">
+    </head>
+
+    <header>
+        <a>RegistreMii!</a>
+    </header>
+
+    <body>
+        {% block body %}
+        {% endblock body %}
+    </body>
+</html>

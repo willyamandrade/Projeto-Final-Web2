@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+
+    {% block title %} Todos os Miis {% endblock title %}
+
+    {% block body %}
+
+        <div class="parent2">
+
+            <div class="nav3">
+
+                <a class="opcao" href="{% url 'home' %}">Voltar</a>
+                  
+                <div>
+                    <table>
+                        <td>Criados por: {{user.username}}</td>
+                        <td>Quantidade de habitantes: {{qtd_mii}}</td>
+                    </table>
+                </div>
+
+                {% comment 'trecos que nao sei pra que serve' %}
+                <img class="icone" src="{% static 'imgs/icon1.png' %}">
+                <img class="icone" src="{% static 'imgs/icon2.png' %}">
+                <img class="icone" src="{% static 'imgs/icon3.png' %}">
+                <img class="icone" src="{% static 'imgs/icon4.png' %}">
+                {% endcomment %}
+            </div>
+
+            <div class="filho2">
+                
+
+                <table>
+                    <thead>
+                        <th></th>
+                        <th>Nome</th>
+                        <th>Idade</th>
+                        <th>Data de Nascimento</th>
+                        <th>Comida Favorita 01</th>
+                        <th>Comida Favorita 02</th>
+                        <th>Personalidade</th>
+                        <th>Gênero</th>
+                        <th>Gênero que gosta</th> 
+                        <th>Felicidade</th>
+                        <th>Mora em</th>
+                    </thead>
+                    {% for mii in miis %}
+                    <tr>
+                        <td>
+                        {% if mii.foto_mii %}
+                        <img src="{{ mii.foto_mii.url }}" width="45">
+                        {% else %}
+                        <img src="{% static 'imgs/miidf.png' %}" width="45">
+                        {% endif %}
+                        </td>
+                        <td>{{mii.nome_mii}}</td>
+                        <td>{{mii.idade_mii}}</td>
+                        <td>{{mii.datadenascimento_mii}}</td>
+                        <td>{{mii.comidafavorita1_mii}}</td>
+                        <td>{{mii.comidafavorita2_mii}}</td>
+                        <td>{{mii.personalidade_mii}}</td>
+                        <td>{{mii.genero_mii}}</td>
+                        <td>{{mii.generoquegosta_mii}}</td>
+                        <td>{{mii.felicidade_mii}}</td>
+                        <td>{{mii.ilha_mii}}</td>
+                    </tr>   
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+
+    {% endblock body %}

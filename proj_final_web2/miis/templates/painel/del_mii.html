@@ -1,19 +1,9 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Deletar Mii</title>
-        <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Chokokutai&family=Copse&family=Palette+Mosaic&display=swap" rel="stylesheet">
-    </head>
 
-    <header>
-        RegistreMii!
-    </header>
+{% block title %} Deletar Mii {% endblock title %}
 
-    <body>
+    {% block body %}
         <div class="parent">
             <p>Quer mesmo deletar o mii {{mii.nome_mii}}?</p>
             <form method="POST">
@@ -22,5 +12,4 @@
                 <button type="submit">Confirmar</button>
             </form>
         </div>
-    </body>
-</html>
+    {% endblock body %}

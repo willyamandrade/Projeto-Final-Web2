@@ -1,20 +1,10 @@
+{% extends "base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Editar Mii</title>
-        <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Chokokutai&family=Copse&family=Palette+Mosaic&display=swap" rel="stylesheet">
-    </head>
+{% block title %} Editar Mii {% endblock title %}
 
-    <header>
-        RegistreMii!
-    </header>
+    {% block body %}
 
-    <body>
         <div class="parent">
             <a href="{% url 'painelmii' ilha_id %}">Voltar</a>
             <form method="POST" enctype="multipart/form-data">
@@ -23,5 +13,5 @@
                 {% csrf_token %}
             </form>
         </div>
-    </body>
-</html>
+
+    {% endblock body %}

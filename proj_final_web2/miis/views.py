@@ -29,9 +29,11 @@ def home(request):
 @login_required
 def painel_mii(request, ilha_id):
 
+    ilha = Ilha.objects.get(pk=ilha_id)
     miis = Mii.objects.filter(ilha_mii=ilha_id)
-    
-    return render(request, "painel/mii.html", {'miis' : miis, 'ilha_id' : ilha_id})
+    qtd_mii = miis.count()
+
+    return render(request, "painel/mii.html", {'miis' : miis, 'ilha':ilha, 'ilha_id' : ilha_id, 'qtd_mii':qtd_mii})
 
 @login_required
 def painel_ilha(request):
@@ -64,7 +66,7 @@ def add_ilha(request):
         ilha_legal = form.save(commit=False)
         ilha_legal.proprietario_ilha = Perfil.objects.get(user=request.user)
         ilha_legal.save()
-        return redirect('painelilha')
+        return redirect('home')
     
     return render(request, "painel/add_ilha.html", {'form':form})
 
@@ -90,7 +92,7 @@ def edit_ilha(request, id):
         ilha_legal = form.save(commit=False)
         ilha_legal.proprietario_ilha = Perfil.objects.get(user=request.user)
         ilha_legal.save()
-        return redirect('painelilha')
+        return redirect('home')
     
     return render(request, "painel/edit_ilha.html", {'form':form})
 
@@ -112,6 +114,16 @@ def del_ilha(request, id):
 
     if request.method=="POST":
         ilha_deletar.delete()
-        return redirect('painelilha')
+        return redirect('home')
     
     return render(request, 'painel/del_ilha.html', {'ilha' : ilha_deletar})
+
+@login_required
+def todos_mii(request):
+
+    id_user = request.user.perfil.id
+    ilhas = Ilha.objects.filter(proprietario_ilha_id=id_user)
+    miis = Mii.objects.filter(ilha_mii__in=ilhas)
+    qtd_mii = miis.count()
+
+    return render(request, "painel/mii_todos.html", {'miis' : miis, 'qtd_mii':qtd_mii})

@@ -1,27 +1,18 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Deletar Ilha</title>
-        <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Chokokutai&family=Copse&family=Palette+Mosaic&display=swap" rel="stylesheet">
-    </head>
 
-    <header>
-        RegistreMii!
-    </header>
+{% block title %} Deletar Ilha {% endblock title %}
 
-    <body>
+    {% block body %}
+
         <div class="parent">
             <p>Você perderá todos os miis cadastrados na ilha.</p>
             <p>Quer mesmo deletar a ilha {{ilha.nome_ilha}}?</p>
             <form method="POST">
                 {% csrf_token %}
-                <a href="{% url 'painelilha' %}">Cancelar</a>
+                <a href="{% url 'home' %}">Cancelar</a>
                 <button type="submit">Confirmar</button>
             </form>
         </div>
-    </body>
-</html>
+        
+    {% endblock body %}
