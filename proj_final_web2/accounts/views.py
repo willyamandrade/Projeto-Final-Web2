@@ -23,7 +23,7 @@ def cadastrar(request):
             link = f"http://localhost:8000/ativar/{uid}/{token}/"
 
             nome_user = User.objects.get(pk=urlsafe_base64_decode(uid).decode()).username
-            send_mail('Ative sua conta: ', f'Clique aqui: {link}', 'web2@ifce.edu.br', [user.email])
+            send_mail('Ative sua conta', link, 'nao-responda@registremii.com.br', [user.email])
             
             return render(request, 'accounts/cadastro_sucesso.html', {})
     else:

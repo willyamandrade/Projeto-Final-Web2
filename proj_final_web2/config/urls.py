@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.urls import path, include
+from miis import views as views_miis
 
 from config import settings
 
@@ -25,6 +26,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('', include('accounts.urls')),
     path('miis/', include('miis.urls')),
+    path('', views_miis.home, name='home'),
 ]
 
 if settings.DEBUG:
