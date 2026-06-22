@@ -8,22 +8,26 @@
         <div class="parent">
             <a href="{% url 'painel' mii.ilha_mii_id %}">Voltar</a>
 
-            {% if mii.foto_mii %}
-            <img src="{{ mii.foto_mii.url }}" width="150">
-            {% else %}
-            <img src="{% static 'imgs/miidf.png' %}" width="150">
-            {% endif %}
+            <div class="megadetalhes">
+                {% if mii.foto_mii %}
+                <img src="{{ mii.foto_mii.url }}" width="150">
+                {% else %}
+                <img src="{% static 'imgs/miidf.png' %}" width="150">
+                {% endif %}
 
-            <td>Nome: {{mii.nome_mii}}</td>
-            <td>Idade: {{mii.idade_mii}}</td>
-            <td>Data de nascimento: {{mii.datadenascimento_mii}}</td>
-            <td>Comida Favorita 01: {{mii.comidafavorita1_mii}}</td>
-            <td>Comida Favorita 02: {{mii.comidafavorita2_mii}}</td>
-            <td>Personalidade: {{mii.personalidade_mii}}</td>
-            <td>Gênero: {{mii.genero_mii}}</td>
-            <td>Gênero que gosta: {{mii.generoquegosta_mii}}</td>
-            <td>Felicidade: {{mii.felicidade_mii}}</td>
-            <td>Mora em: {{mii.ilha_mii}}</td>
+                <div class="detalhinhos">
+                    <td>Nome: {{mii.nome_mii}}</td><br>
+                    <td>Idade: {{mii.idade_mii}}</td><br>
+                    <td>Data de nascimento: {{mii.datadenascimento_mii}}</td><br>
+                    <td>Comida Favorita 01: {{mii.comidafavorita1_mii}}</td><br>
+                    <td>Comida Favorita 02: {{mii.comidafavorita2_mii}}</td><br>
+                    <td>Personalidade: {{mii.personalidade_mii}}</td><br>
+                    <td>Gênero: {{mii.genero_mii}}</td><br>
+                    <td>Gênero que gosta: {{mii.generoquegosta_mii}}</td><br>
+                    <td>Felicidade: {{mii.felicidade_mii}}</td><br>
+                    <td>Mora em: {{mii.ilha_mii}}</td><br>  
+                </div>
+            </div>
 
             <form method="POST" enctype="multipart/form-data">
                 {{ form.as_p }}

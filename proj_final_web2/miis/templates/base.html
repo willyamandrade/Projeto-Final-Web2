@@ -6,7 +6,8 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Título{% endblock %}</title>
-        <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+        <!-- esse now 'u' atualiza a pagina quando o css atualiza (as vezes) -->
+        <link rel="stylesheet" href="{% static 'css/estilo.css' %}?{% now 'U' %}">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Chokokutai&family=Copse&family=Palette+Mosaic&display=swap" rel="stylesheet">

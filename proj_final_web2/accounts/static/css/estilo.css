@@ -13,8 +13,6 @@ html {
     color:rgb(155, 179, 255);
     font-size: 45px;
     align-self: center;
-
-    
 }
 
 header{
@@ -61,6 +59,7 @@ a:hover {
     position: absolute;
     left: 50%;
     top: 420px;
+    padding: 5px;
     transform: translate(-50%, -50%);
     flex-direction: column;
     
@@ -68,8 +67,9 @@ a:hover {
 }
 
 .parent2 {
-    width: 1500px;
-    min-height: 300px;
+    width: 90%;
+    max-height: 80%;
+    overflow-y: auto;
     background-color:rgb(255, 255, 255);
     align-self: center;
     align-content: center;
@@ -78,10 +78,10 @@ a:hover {
     border-radius: 30px;
     font-family: "Copse", serif;
     color:rgb(155, 179, 255);
-    position: relative;
-    left: 830px;
-    top: 250px;
-    margin-top: 160px;
+    position: absolute;
+    left: 50%;
+    top: 58%;
+    padding: 5px;
     transform: translate(-50%, -50%);
     flex-direction: column;
 
@@ -128,9 +128,18 @@ form{
     text-align: center;
     align-self: center;
     margin-top: 15px;
-    
-    
+}
 
+.megadetalhes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+    padding: 2%;
+}
+
+.detalhinhos {
+    text-align: left;
 }
 
 .div4{
@@ -277,6 +286,8 @@ form{
 }
 
 .iconemii {
+    border-radius: 20%;
+    padding: 5px;
     width: 45px;
     height: 45px;
 }
@@ -284,7 +295,6 @@ form{
 .opcao {
     margin: 40px;
 }
-
 
 /*fontes*/
 .palette-mosaic-regular {

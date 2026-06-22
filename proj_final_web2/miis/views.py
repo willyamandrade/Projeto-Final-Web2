@@ -17,12 +17,8 @@ def home(request):
     
     id_user = request.user.perfil.id
     ilhas = Ilha.objects.filter(proprietario_ilha_id=id_user)
-    qtd_mii = 0
-    
-    # itera por cada ilha do usuário, contando o número de miis que o pertencem 
-    for ilha in ilhas:
-        ilha_do_usuario = Mii.objects.filter(ilha_mii=ilha)
-        qtd_mii += ilha_do_usuario.count()
+    miis = Mii.objects.filter(ilha_mii__in=ilhas)
+    qtd_mii = miis.count()
 
     return render(request, 'principal/home.html', {'ilhas':ilhas, 'qtd_mii' : qtd_mii})
 

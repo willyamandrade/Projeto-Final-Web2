@@ -61,7 +61,10 @@
                         <td>{{mii.genero_mii}}</td>
                         <td>{{mii.generoquegosta_mii}}</td>
                         <td>{{mii.felicidade_mii}}</td>
-                        <td><a href="{% url 'edit_mii' ilha_id mii.id %}">Editar</a><br><a href="{% url 'del_mii' ilha_id mii.id %}">Excluir</a></td>
+                        <td>
+                        <a href="{% url 'edit_mii' ilha_id mii.id %}">Editar</a>
+                        <a href="{% url 'del_mii' ilha_id mii.id %}">Excluir</a>
+                        </td>
                     </tr>   
                     {% endfor %}
                 </table>
