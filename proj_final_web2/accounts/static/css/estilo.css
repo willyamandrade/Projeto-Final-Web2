@@ -3,16 +3,49 @@ html {
     height: 100%;
     width: 100%;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size:auto;
     background-position: center center;
+
 }
+
 
 .titulo {
     color:rgb(155, 179, 255);
     font-size: 45px;
     align-self: center;
+
     
 }
+
+header{
+    height: 120px;
+    color:azure;
+    font-size: 80px;
+    position:static;
+    left: 20px;
+    top: 20px;
+    font-family: "Palette Mosaic", system-ui;
+    margin-bottom: 70px;
+    background-color: rgba(255, 0, 0, 0);
+    z-index: 1000;
+}
+
+a {
+    display:block;
+    color:rgb(17, 34, 219);
+}
+
+a:visited{
+    display: block;
+    color:rgb(17, 34, 219);
+}
+
+a:hover {
+    display:block;
+    color:rgb(244, 29, 140);
+}
+
+
 
 .parent {
     width: 40%;
@@ -27,15 +60,16 @@ html {
     color:rgb(155, 179, 255);
     position: absolute;
     left: 50%;
-    top: 57%;
+    top: 420px;
     transform: translate(-50%, -50%);
     flex-direction: column;
+    
 
 }
 
 .parent2 {
-    width: 90%;
-    min-height: 70%;
+    width: 1500px;
+    min-height: 300px;
     background-color:rgb(255, 255, 255);
     align-self: center;
     align-content: center;
@@ -44,9 +78,10 @@ html {
     border-radius: 30px;
     font-family: "Copse", serif;
     color:rgb(155, 179, 255);
-    position: absolute;
-    left: 50%;
-    top: 57%;
+    position: relative;
+    left: 830px;
+    top: 250px;
+    margin-top: 160px;
     transform: translate(-50%, -50%);
     flex-direction: column;
 
@@ -68,13 +103,6 @@ html {
     color:blue
 }
 
-header{
-    color:azure;
-    font-size: 80px;
-    margin-top: 20px;
-    margin-left: 20px;
-    font-family: "Palette Mosaic", system-ui;
-}
 
 form{
     font-size: 20px;
@@ -149,10 +177,7 @@ form{
     
 } 
 
-.itemnav{
-    margin: 5px;
-    text-align: center;
-}
+
 
 .dvs1{
     padding-top: 20px;
@@ -214,6 +239,7 @@ form{
     align-content: center;
     justify-content: center;
     align-items: center;
+    
 }
 
 
@@ -237,7 +263,6 @@ form{
 
 .fotodeperfil {
     border-radius: 10px;
-    object-fit: cover;
     object-position: center;
     width: 230px;
     height: 230px;
@@ -251,10 +276,9 @@ form{
     margin: auto;
 }
 
-.icone {
-    height: 8%;
-    width: 8%;
-    margin: 30px;
+.iconemii {
+    width: 45px;
+    height: 45px;
 }
 
 .opcao {
@@ -285,3 +309,4 @@ ul {
     list-style-type: none;
     
 }
+
