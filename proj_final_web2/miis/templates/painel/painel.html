@@ -25,12 +25,6 @@
                     </table>
                 </div>
 
-                {% comment 'trecos que nao sei pra que serve' %}
-                <img class="icone" src="{% static 'imgs/icon1.png' %}">
-                <img class="icone" src="{% static 'imgs/icon2.png' %}">
-                <img class="icone" src="{% static 'imgs/icon3.png' %}">
-                <img class="icone" src="{% static 'imgs/icon4.png' %}">
-                {% endcomment %}
             </div>
 
             <div class="filho2">
@@ -53,9 +47,9 @@
                     <tr>
                         <td>
                         {% if mii.foto_mii %}
-                        <img src="{{ mii.foto_mii.url }}" width="45">
+                        <img class="iconemii" src="{{ mii.foto_mii.url }}" width="45">
                         {% else %}
-                        <img src="{% static 'imgs/miidf.png' %}" width="45">
+                        <img class="iconemii" src="{% static 'imgs/miidf.png' %}" width="45">
                         {% endif %}
                         </td>
                         <td><a href="{% url 'detalhes_mii' ilha_id mii.id %}">{{mii.nome_mii}}</a></td>
